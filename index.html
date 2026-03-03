@@ -38,6 +38,7 @@
             width: 100%;
             border-collapse: collapse;
             background-color: white;
+            overflow-x: auto;
         }
 
         th, td {
@@ -56,10 +57,6 @@
             text-decoration: none;
             font-weight: bold;
         }
-
-        a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 
@@ -74,18 +71,12 @@
 </div>
 
 <table>
-    <thead>
-        <tr>
-            <th>Sl No</th>
-            <th>Title</th>
-            <th>Link</th>
-        </tr>
-    </thead>
-    <tbody id="tableBody">
-    </tbody>
+    <thead id="tableHead"></thead>
+    <tbody id="tableBody"></tbody>
 </table>
 
 <script>
+
 let jsonData = {};
 
 fetch('data.json')
@@ -102,22 +93,45 @@ function loadTab(tabName, element) {
 
     element.classList.add('active');
 
+    const tableHead = document.getElementById('tableHead');
     const tableBody = document.getElementById('tableBody');
+
+    tableHead.innerHTML = '';
     tableBody.innerHTML = '';
 
-    jsonData[tabName].forEach(item => {
+    const data = jsonData[tabName];
 
-        const row = `
-            <tr>
-                <td>${item.slno}</td>
-                <td>${item.title}</td>
-                <td><a href="${item.link}" target="_blank">Open Link</a></td>
-            </tr>
-        `;
+    if (!data || data.length === 0) return;
 
-        tableBody.innerHTML += row;
+    // Create table headers dynamically
+    const headers = Object.keys(data[0]);
+    let headerRow = '<tr>';
+    headers.forEach(header => {
+        headerRow += `<th>${header}</th>`;
+    });
+    headerRow += '</tr>';
+    tableHead.innerHTML = headerRow;
+
+    // Create table rows dynamically
+    data.forEach(row => {
+        let rowHtml = '<tr>';
+
+        headers.forEach(header => {
+            let cellValue = row[header];
+
+            // If it looks like a URL, convert to clickable link
+            if (cellValue && cellValue.startsWith("http")) {
+                cellValue = `<a href="${cellValue}" target="_blank">Open Link</a>`;
+            }
+
+            rowHtml += `<td>${cellValue || ''}</td>`;
+        });
+
+        rowHtml += '</tr>';
+        tableBody.innerHTML += rowHtml;
     });
 }
+
 </script>
 
 </body>
