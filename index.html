@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Faculty Accomplishments Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #2c3e50;
+            color: white;
+            margin: 0 5px;
+            border-radius: 5px;
+        }
+
+        .tab-button.active {
+            background-color: #1abc9c;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        a {
+            color: #1abc9c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Faculty Accomplishments Dashboard</h2>
+
+<div class="tabs">
+    <button class="tab-button active" onclick="loadTab('before', this)">Before Joining</button>
+    <button class="tab-button" onclick="loadTab('after', this)">After Joining</button>
+    <button class="tab-button" onclick="loadTab('additional', this)">Additional Links</button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Sl No</th>
+            <th>Title</th>
+            <th>Link</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
+</table>
+
+<script>
+let jsonData = {};
+
+fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+        jsonData = data;
+        loadTab('before', document.querySelector('.tab-button'));
+    });
+
+function loadTab(tabName, element) {
+
+    document.querySelectorAll('.tab-button')
+        .forEach(btn => btn.classList.remove('active'));
+
+    element.classList.add('active');
+
+    const tableBody = document.getElementById('tableBody');
+    tableBody.innerHTML = '';
+
+    jsonData[tabName].forEach(item => {
+
+        const row = `
+            <tr>
+                <td>${item.slno}</td>
+                <td>${item.title}</td>
+                <td><a href="${item.link}" target="_blank">Open Link</a></td>
+            </tr>
+        `;
+
+        tableBody.innerHTML += row;
+    });
+}
+</script>
+
+</body>
+</html>

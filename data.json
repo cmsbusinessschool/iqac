@@ -1,0 +1,28 @@
+{
+  "before": [
+    {
+      "slno": "1",
+      "title": "Faculty Personal Information_Mandatory",
+      "link": "https://forms.gle/GatP9CLPPBXPUawF9"
+    },
+    {
+      "slno": "2",
+      "title": "Photocopies of Marks Card from SSLC",
+      "link": "https://forms.gle/UboAht8K8PGkHfWn8"
+    }
+  ],
+  "after": [
+    {
+      "slno": "1",
+      "title": "Research Publications",
+      "link": "YOUR_LINK_HERE"
+    }
+  ],
+  "additional": [
+    {
+      "slno": "1",
+      "title": "Paper Submission to Journals",
+      "link": "https://docs.google.com/forms/..."
+    }
+  ]
+}
