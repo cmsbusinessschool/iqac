@@ -5,13 +5,14 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f6f9;
+            background-color: #f2f4f8;
             margin: 0;
             padding: 20px;
         }
 
         h2 {
             text-align: center;
+            color: #2c3e50;
         }
 
         .tabs {
@@ -21,41 +22,54 @@
         }
 
         .tab-button {
-            padding: 10px 20px;
+            padding: 10px 25px;
             cursor: pointer;
             border: none;
             background-color: #2c3e50;
             color: white;
             margin: 0 5px;
-            border-radius: 5px;
+            border-radius: 6px;
+            font-size: 14px;
         }
 
         .tab-button.active {
             background-color: #1abc9c;
         }
 
+        .tab-button:hover {
+            opacity: 0.9;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
             background-color: white;
-            overflow-x: auto;
         }
 
         th, td {
             padding: 10px;
             border: 1px solid #ddd;
             text-align: left;
+            font-size: 14px;
         }
 
         th {
-            background-color: #2c3e50;
+            background-color: #34495e;
             color: white;
         }
 
         a {
-            color: #1abc9c;
-            text-decoration: none;
+            color: #2980b9;
             font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -65,73 +79,93 @@
 <h2>Faculty Accomplishments Dashboard</h2>
 
 <div class="tabs">
-    <button class="tab-button active" onclick="loadTab('before', this)">Before Joining</button>
-    <button class="tab-button" onclick="loadTab('after', this)">After Joining</button>
-    <button class="tab-button" onclick="loadTab('additional', this)">Additional Links</button>
+    <button class="tab-button active" onclick="showTab('after', this)">After Joining</button>
+    <button class="tab-button" onclick="showTab('before', this)">Before Joining</button>
+    <button class="tab-button" onclick="showTab('additional', this)">Additional Links</button>
 </div>
 
+<!-- AFTER JOINING TABLE -->
+
+<div id="after" class="tab-content">
 <table>
-    <thead id="tableHead"></thead>
-    <tbody id="tableBody"></tbody>
+<thead>
+<tr>
+<th>Sl No</th>
+<th>Criteria</th>
+<th>Links of Criteria</th>
+</tr>
+</thead>
+<tbody>
+
+<tr><td>1</td><td>Additional Achievement (Certificate of Appreciation & Participation Certificate)</td><td><a href="https://forms.gle/mY4K4RPN7J6BfoNt6" target="_blank">Open Link</a></td></tr>
+<tr><td>2</td><td>Awards and Recognition (Government/ Non Government/ Best Paper/ Best Professor or any other)</td><td><a href="https://forms.gle/R9ChZcPbjhb3spQH6" target="_blank">Open Link</a></td></tr>
+<tr><td>3</td><td>Board of Examiner</td><td><a href="https://forms.gle/B9GgFnP9vRTyK57q8" target="_blank">Open Link</a></td></tr>
+<tr><td>4</td><td>Board of Studies</td><td><a href="https://forms.gle/JKjsT6f8C9UcnmPPA" target="_blank">Open Link</a></td></tr>
+<tr><td>5</td><td>Book Authored / Book Chapter / Chapter Review</td><td><a href="https://forms.gle/oiAxxxvwovEAcbfe8" target="_blank">Open Link</a></td></tr>
+<tr><td>6</td><td>Conference Proceedings</td><td><a href="https://forms.gle/Sh4sX2JAEq3WbX9u6" target="_blank">Open Link</a></td></tr>
+<tr><td>7</td><td>Research Paper Review by Faculty</td><td><a href="https://forms.gle/aG35TfhGuvDDBq7ZA" target="_blank">Open Link</a></td></tr>
+<tr><td>8</td><td>Case Study Authored by Faculty</td><td><a href="https://forms.gle/qFyqpm5jV1UfUZxk7" target="_blank">Open Link</a></td></tr>
+<tr><td>9</td><td>Conclave Attended Outside</td><td><a href="https://forms.gle/jTuMAXT2s7a16zUu6" target="_blank">Open Link</a></td></tr>
+<tr><td>10</td><td>Conference/Seminar Attended Outside / CMS-BS (Only as Participant / Without Paper Presentation)</td><td><a href="https://forms.gle/VfkvoDuJjzEVSdtx5" target="_blank">Open Link</a></td></tr>
+<tr><td>11</td><td>Copyright</td><td><a href="https://forms.gle/Gji3niBQCMHh11xT9" target="_blank">Open Link</a></td></tr>
+<tr><td>12</td><td>Collaboration Project Link</td><td><a href="https://forms.gle/1MakVZBxkLDcv9ZB6" target="_blank">Open Link</a></td></tr>
+<tr><td>13</td><td>Design of New Curriculum and Courses for MOOCs</td><td><a href="https://forms.gle/kT5hp81b61BU2fo86" target="_blank">Open Link</a></td></tr>
+<tr><td>14</td><td>E-Content Developed by Faculty</td><td><a href="https://forms.gle/X6UYMEzrbM9Y6M6L9" target="_blank">Open Link</a></td></tr>
+<tr><td>15</td><td>Editorial Board Member</td><td><a href="https://forms.gle/jZspZ1oBTKCrkaeaA" target="_blank">Open Link</a></td></tr>
+<tr><td>16</td><td>Faculty Consultancy</td><td><a href="https://forms.gle/APrcadYHn6dLTms19" target="_blank">Open Link</a></td></tr>
+<tr><td>17</td><td>FDP Attended in CMS-BS / Outside</td><td><a href="https://forms.gle/tNLUzsorQGJMZCiJA" target="_blank">Open Link</a></td></tr>
+<tr><td>18</td><td>FDP Conducted Outside by Faculty</td><td><a href="https://forms.gle/brw8Mj7FRZyxMDJQ8" target="_blank">Open Link</a></td></tr>
+<tr><td>19</td><td>Guest Lecture Conducted Outside</td><td><a href="https://forms.gle/F4Tv5yF5waeKcvet8" target="_blank">Open Link</a></td></tr>
+<tr><td>20</td><td>Lesson Plan (Separate lesson plans for different subjects)</td><td><a href="https://forms.gle/K5cRsDwm1DvKuDjT7" target="_blank">Open Link</a></td></tr>
+<tr><td>21</td><td>Major / Minor Projects Undertaken</td><td><a href="https://forms.gle/bZT6fQwjsfiGW4Uk6" target="_blank">Open Link</a></td></tr>
+<tr><td>22</td><td>MDP Attended / Conducted</td><td><a href="https://forms.gle/uw9D4J4jiqSEdTKBA" target="_blank">Open Link</a></td></tr>
+<tr><td>23</td><td>Professional Membership</td><td><a href="https://forms.gle/PfJiWRqUyGeRz6cR8" target="_blank">Open Link</a></td></tr>
+<tr><td>24</td><td>Panel Discussion Attended</td><td><a href="https://forms.gle/a7fEV6GE4uWJz9vs6" target="_blank">Open Link</a></td></tr>
+<tr><td>25</td><td>Panel Discussion Conducted / Coordinated / Moderated</td><td><a href="https://forms.gle/3VbqNzyTG7cLEsoXA" target="_blank">Open Link</a></td></tr>
+<tr><td>26</td><td>Panel Member of PHD Review Meet / Colloquium / Final Viva</td><td><a href="https://forms.gle/RtsaEngYEMHX9Q1K6" target="_blank">Open Link</a></td></tr>
+<tr><td>27</td><td>Paper Present in Conferences / Seminar</td><td><a href="https://forms.gle/V1VtYY45dFq4SMz49" target="_blank">Open Link</a></td></tr>
+<tr><td>28</td><td>Patents</td><td><a href="https://forms.gle/V6dAUEYG5F6vuPJf9" target="_blank">Open Link</a></td></tr>
+<tr><td>29</td><td>Ph.D / M.Phil Guidance</td><td><a href="https://forms.gle/ux8TRN2tN1xmiLzk7" target="_blank">Open Link</a></td></tr>
+<tr><td>30</td><td>Policy Documents Submitted (UNO/UNESCO/World Bank/IMF etc.)</td><td><a href="https://forms.gle/V6FeiT66HKLurjEr5" target="_blank">Open Link</a></td></tr>
+<tr><td>31</td><td>Faculty Promotion</td><td><a href="https://forms.gle/1bb8mi2vP7NpiLpC9" target="_blank">Open Link</a></td></tr>
+<tr><td>32</td><td>Research Paper Published in Journal</td><td><a href="https://forms.gle/hUSiBzZN3J5BiG24A" target="_blank">Open Link</a></td></tr>
+<tr><td>33</td><td>Invitation as Resource Person (Chair/Session/Moderator etc.)</td><td><a href="https://forms.gle/bdQi1A9FEBHS2dam9" target="_blank">Open Link</a></td></tr>
+<tr><td>34</td><td>Certification Courses Completed (Swayam/Coursera/NPTEL/LinkedIn etc.)</td><td><a href="https://forms.gle/63ix2dXQ1xn2zG9k7" target="_blank">Open Link</a></td></tr>
+<tr><td>35</td><td>Upgradation of Qualification</td><td><a href="https://forms.gle/geq2dJJzcYmRF5tV8" target="_blank">Open Link</a></td></tr>
+<tr><td>36</td><td>Webinar Attended</td><td><a href="https://forms.gle/edyuov7KZ7HycP3NA" target="_blank">Open Link</a></td></tr>
+<tr><td>37</td><td>Webinar Conducted</td><td><a href="https://forms.gle/ZHnizrKBPze8s4VCA" target="_blank">Open Link</a></td></tr>
+<tr><td>38</td><td>Workshop Attended</td><td><a href="https://forms.gle/aRxtgXd6WNcmmvvL8" target="_blank">Open Link</a></td></tr>
+<tr><td>39</td><td>Workshop Conducted</td><td><a href="https://forms.gle/uRDSFNYF2JxSEJTSA" target="_blank">Open Link</a></td></tr>
+<tr><td>40</td><td>Media Engagement</td><td><a href="https://forms.gle/LTwh3Uwx52ovLinz6" target="_blank">Open Link</a></td></tr>
+
+</tbody>
 </table>
+</div>
+
+<!-- BEFORE JOINING -->
+<div id="before" class="tab-content hidden">
+<h3>Before Joining Data - Add Your Table Here</h3>
+</div>
+
+<!-- ADDITIONAL -->
+<div id="additional" class="tab-content hidden">
+<h3>Additional Links - Add Your Table Here</h3>
+</div>
 
 <script>
-
-let jsonData = {};
-
-fetch('data.json')
-    .then(response => response.json())
-    .then(data => {
-        jsonData = data;
-        loadTab('before', document.querySelector('.tab-button'));
+function showTab(tabId, element) {
+    document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.add('hidden');
     });
 
-function loadTab(tabName, element) {
+    document.getElementById(tabId).classList.remove('hidden');
 
-    document.querySelectorAll('.tab-button')
-        .forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.remove('active');
+    });
 
     element.classList.add('active');
-
-    const tableHead = document.getElementById('tableHead');
-    const tableBody = document.getElementById('tableBody');
-
-    tableHead.innerHTML = '';
-    tableBody.innerHTML = '';
-
-    const data = jsonData[tabName];
-
-    if (!data || data.length === 0) return;
-
-    // Create table headers dynamically
-    const headers = Object.keys(data[0]);
-    let headerRow = '<tr>';
-    headers.forEach(header => {
-        headerRow += `<th>${header}</th>`;
-    });
-    headerRow += '</tr>';
-    tableHead.innerHTML = headerRow;
-
-    // Create table rows dynamically
-    data.forEach(row => {
-        let rowHtml = '<tr>';
-
-        headers.forEach(header => {
-            let cellValue = row[header];
-
-            // If it looks like a URL, convert to clickable link
-            if (cellValue && cellValue.startsWith("http")) {
-                cellValue = `<a href="${cellValue}" target="_blank">Open Link</a>`;
-            }
-
-            rowHtml += `<td>${cellValue || ''}</td>`;
-        });
-
-        rowHtml += '</tr>';
-        tableBody.innerHTML += rowHtml;
-    });
 }
-
 </script>
 
 </body>
